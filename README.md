@@ -94,7 +94,7 @@ The **Interquartile Range (IQR)** was used to detect and handle outliers in the 
 
 ## Results & Insights
 
-Based on the analysis, the customer base was segmented into distinct groups using the RFM scores
+Based on the analysis, the customer base was segmented into distinct groups using the RFM scores: 
 
 - **VIP Customers**
   
@@ -105,6 +105,7 @@ Based on the analysis, the customer base was segmented into distinct groups usin
 - **Churned Customers**
 
 - **Walk-in Customers**
+
 Insights includes:
 - Overview of the number of customers in each group.
 - Overview of the revenue situation in each group.
