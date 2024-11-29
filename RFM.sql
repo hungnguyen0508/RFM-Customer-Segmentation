@@ -1,5 +1,29 @@
 use rfmreport; 
-select * from customer_registered; 
+-- Deleting duplicates from customer_registered table: 
+with unique_table as (
+select id, 
+	   row_number() over (partition by contract,created_date order by created_date DESC) as ranking 
+from customer_registered cr)
+delete from customer_registered cr 
+where id in (select id from unique_table where ranking>1)
+
+-- Dealing with missing value. 
+update customer_registered
+set locationID=-1 
+where locationid is null; 
+
+update customer_registered 
+set BranchCode = -1 
+where BranchCode is null; 
+
+update customer_registered 
+set Status= -1 
+where Status is null; 
+
+delete from customer_registered 
+where created_date is null; 
+
+-- Calculate the RFM index
 with customer_statistics as (
 SELECT 
         ct.customerid, 
